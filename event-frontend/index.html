@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RK Event Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body
+    class="container"
+    style="
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      height: 100vh;
+      width: 100%;
+      background: linear-gradient(to bottom, #68eacc 0%, #497be8);
+    "
+  >
+    <div
+      class="wrapper"
+      style="
+        margin: 120px auto;
+        max-width: 400px;
+        background: #fff;
+        border-radius: 5px;
+        padding: 25px;
+      "
+    >
+      <header style="font-size: 30px; font-weight: 600">Event Manager</header>
+      <div class="inputField" style="height: 45px; width: 100%; margin: 70px 0">
+        <input type="text" class="eventName" placeholder="Event Name" />
+        <input type="text" class="eventLocation" placeholder="Event Location" />
+        <input type="text" class="eventStart" placeholder="Event Start Date" />
+        <input type="text" class="eventEnd" placeholder="Event End Date" />
+        <input type="text" class="eventBanner" placeholder="Event Banner" />
+        <button class="addBtn">Add</button>
+      </div>
+      <ul class="eventList">
+        <li>
+          Test 1
+          <span
+            ><button class="edit-button">Edit</button
+            ><button>Delete</button></span
+          >
+        </li>
+        <li>Test 2</li>
+        <li>Test 3</li>
+        <li>Test 4</li>
+        <li>Test 5</li>
+        <li>Test 2</li>
+        <li>Test 3</li>
+        <li>Test 4</li>
+        <li>Test 5</li>
+      </ul>
+      <div class="footer">
+        <span>You currently have 4 events!</span>
+        <button
+          style="
+            background: red;
+            color: #fff;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 3px;
+          "
+        >
+          Delete All
+        </button>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
