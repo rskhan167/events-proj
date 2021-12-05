@@ -3,6 +3,7 @@ import {
   getEvents,
   createEvent,
   editEvent,
+  deleteEvents,
 } from "./controllers/eventController.js";
 
 const server = http.createServer((req, res) => {
@@ -13,6 +14,8 @@ const server = http.createServer((req, res) => {
     editEvent(req, res, id);
   } else if (req.url === "/api/event" && req.method === "POST") {
     createEvent(req, res);
+  } else if (req.url === "/api/events" && req.method === "DELETE") {
+    deleteEvents(req, res);
   } else {
     res.writeHead(404, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ message: "Route Not Found" }));

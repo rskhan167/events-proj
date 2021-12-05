@@ -117,4 +117,33 @@ async function editEvent(req, res, id) {
   }
 }
 
-export { getEvents, createEvent, editEvent };
+async function deleteEvents(req, res) {
+  try {
+    await client.connect();
+
+    const body = await getPostData(req);
+    const { eventIdList } = JSON.parse(body);
+
+    if (eventIdList.length < 1) {
+      console.log("Bad Request");
+      res.writeHead(400, {
+        "Content-Type": "text",
+      });
+      res.end(`Bad Request. Invalid Request Body!`);
+    }
+
+    await client.query(`DELETE FROM event WHERE id IN (${eventIdList})`);
+
+    res.writeHead(200, {
+      "Content-Type": "text",
+    });
+    res.end(`Event Deleted!`);
+
+    await client.end();
+  } catch (error) {
+    console.log(error.message);
+    throw new Error(error.message);
+  }
+}
+
+export { getEvents, createEvent, editEvent, deleteEvents };
